@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <math.h>
+void seperate(double number, char *sign, int *whole, double *frac);
+
+int main() {
+double value; char sign; int wholep; double frac;
+
+printf("Enter the value: ");
+scanf("%lf", &value);
+
+seperate(value, &sign, &wholep, &frac);
+
+printf("\n%.4lf\n", value);
+printf("%c\n", sign);
+printf("%d\n", wholep);
+printf("%.4f", frac);
+
+
+
+
+
+return 0;
+}
+void seperate(double number, char *sign, int *whole, double *frac) {
+
+    if(number < 0){
+        *sign = '-';
+    }else if(number == 0){
+        *sign = ' ';
+    }else
+        *sign = '+';
+
+    double magnitude = fabs(number);
+    *whole = floor(magnitude);
+    *frac = magnitude - *whole;
+
+
+}
+
